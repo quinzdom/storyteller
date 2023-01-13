@@ -16,5 +16,5 @@ export default async function (req, res) {
   res.status(200).json({ result: completion.data.choices[0].text });
 }
 function generatePrompt(genre, hobbies) {
-  return `In under 250 words tell ${genre} story about ${hobbies}. `;
+  return `In under 200 words tell ${genre} story about ${hobbies}. `;
 }
