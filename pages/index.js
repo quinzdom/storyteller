@@ -111,7 +111,9 @@ export default function Home() {
           </div>
         )}
 
-        <div>On {genre} and {hobbies}</div>
+        <div  className={styles.summary}
+        >On {genre} and {hobbies}</div>
+        
         <div
           className={styles.result}
           dangerouslySetInnerHTML={{ __html: result }}
