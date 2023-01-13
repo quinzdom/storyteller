@@ -20,5 +20,5 @@ export default async function (req, res) {
 // }
 
 function generatePrompt(genre, hobbies) {
-  return `In under 200 words tell a ${genre} story involving ${hobbies}. `;
+  return `In 280 characters tell a ${genre} story involving ${hobbies}. `;
 }

@@ -102,17 +102,15 @@ export default function Home() {
           
         </form>
 
-        {/* //story length */}
         
+        <div  className={styles.summary}>
+        On {genre} and {hobbies}</div>
+
         {loading && (
           <div>
             <h3>Creating a story...</h3>
-            <img src="" className={styles.loading} />
           </div>
         )}
-
-        <div  className={styles.summary}
-        >On {genre} and {hobbies}</div>
         
         <div
           className={styles.result}
