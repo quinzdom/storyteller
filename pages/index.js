@@ -5,12 +5,10 @@ import styles from './index.module.css';
 
 export default function Home() {
   const [genre, setGenre] = useState('comedy');
-  // const [age, setAge] = useState(30);
-  // const [priceMin, setPriceMin] = useState(25);
-  // const [priceMax, setPriceMax] = useState(100);
-  const [hobbies, setHobbies] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [characters, setCharacters] = useState('');
+  const [paragraphs, setParagraphs] = useState('1')
 
+  const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
 
   async function onSubmit(event) {
@@ -25,7 +23,7 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({genre, hobbies }),
+      body: JSON.stringify({genre, characters, paragraphs }),
     });
     const data = await response.json();
     setResult(data.result.replaceAll('\n', '<br />'));
@@ -34,11 +32,12 @@ export default function Home() {
 
   return (
     <div>
+    
       <Head>
         <title>Storyteller</title>
         <link rel="icon" href="/dog.png" />
       </Head>
-
+      
       <main className={styles.main}>
         <h3>Storyteller</h3>
         <form onSubmit={onSubmit}>
@@ -57,54 +56,29 @@ export default function Home() {
             <option value="Romantic Comedy">Romantic Comedy</option>
           </select>
 
-          {/* <label>Age</label>
-          <input
-            type="number"
-            min={1}
-            max={99}
-            name="age"
-            placeholder="Enter the age"
-            value={age}
-            onChange={(e) => setAge(Number.parseInt(e.target.value))}
-          />
-
-          <label>Price from</label>
-          <input
-            type="number"
-            min={1}
-            name="priceMin"
-            placeholder="Enter the minimum price"
-            value={priceMin}
-            onChange={(e) => setPriceMin(Number.parseInt(e.target.value))}
-          />
-
-          <label>Price to</label>
-          <input
-            type="number"
-            min={1}
-            name="priceMax"
-            placeholder="Enter the maximum price"
-            value={priceMax}
-            onChange={(e) => setPriceMax(Number.parseInt(e.target.value))}
-          /> */}
-
           <label>Name a character</label>
           <input
             type="text"
-            name="hobbies"
+            name="characters"
             placeholder="Name another character"
-            value={hobbies}
-            onChange={(e) => setHobbies(e.target.value)}
+            value={characters}
+            onChange={(e) => setCharacters(e.target.value)}
             />
             
-          <input type="submit" value="create story" />
+          <label>Paragraphs</label>
+          <div className={styles.paragraphs}>
+            <button type="button" onClick={() => setParagraphs('1')}>1</button>
+            <button type="button"  onClick={() => setParagraphs('3')}>3</button>
+            <button type="button"  onClick={() => setParagraphs('6')}>6</button>
+          </div>
+          
 
+          <input type="submit" value="create story" />
           
         </form>
 
-        
-        <div  className={styles.summary}>
-        On {genre} and {hobbies}</div>
+        <div className={styles.summary}>On {genre} and {characters}: a {paragraphs} paragraph story</div>
+
 
         {loading && (
           <div>

@@ -6,19 +6,17 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-  const {genre, hobbies } = req.body;
+  const {genre, characters, paragraphs } = req.body;
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
-    prompt: generatePrompt(genre, hobbies),
+    prompt: generatePrompt(genre, characters, paragraphs),
     temperature: 0.6,
     max_tokens: 2048,
   });
   res.status(200).json({ result: completion.data.choices[0].text });
 }
-// function generatePrompt(genre, hobbies) {
-//   return `In under 200 words tell a ${genre} story involving ${hobbies}. `;
-// }
 
-function generatePrompt(genre, hobbies) {
-  return `In about 3 paragraphs tell a ${genre} story involving ${hobbies}. `;
+
+function generatePrompt(genre, characters, paragraphs) {
+  return `In ${paragraphs} paragraphs tell a ${genre} story involving ${characters}. `;
 }
