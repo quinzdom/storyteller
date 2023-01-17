@@ -19,7 +19,7 @@ export default async function (req, res) {
   });
   res.status(200).json({ result: completion.data.choices[0].text });}
   else {
-    await sleep(2000)
+    await sleep(5000)
     res.status(200).json({result:dummy_text})
 
     }

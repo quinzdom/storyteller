@@ -1,30 +1,30 @@
 @font-face {
   font-family: "Comic Neue";
-  src: url("../public/ComicNeue/ComicNeue-Regular.ttf") format("truetype");
+  src: url("../public/fonts/ComicNeue/ComicNeue-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: Futura PT;
-  src: url("../public/Futura\ PT/FuturaPTMedium.otf") ;
+  src: url("../public/fonts/Futura\ PT/FuturaPTMedium.otf") ;
 }
 @font-face {
   font-family: Lobster;
-  src: url("../public/Lobster/Lobster-Regular.ttf") ;
+  src: url("../public/fonts/Lobster/Lobster-Regular.ttf") ;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../public/Montserrat/static/Montserrat-Regular.ttf");
+  src: url("../public/fonts/Montserrat/static/Montserrat-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../public/Montserrat/static/Montserrat-Bold.ttf");
+  src: url("../public/fonts/Montserrat/static/Montserrat-Bold.ttf");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Montserrat";
-  src: url("../public/Montserrat/static/Montserrat-BoldItalic.ttf");
+  src: url("../public/fonts/Montserrat/static/Montserrat-BoldItalic.ttf");
   font-weight: bold;
   font-style: italic;
 }
@@ -112,7 +112,7 @@
 .main .summaryTitle {
   font-size:20px;
   font-weight: bold;
-  padding-top:50px;
+  padding-top:35px;
   width: 50%;
   text-align:center;
 }
@@ -135,10 +135,7 @@
   font-size: 14px;
 }
 
-.main loading {
-  font-family:Lobster;
-  font-size:28px
-}
+
 .main .load {
   margin-top:20px;
 }
@@ -169,13 +166,37 @@
   background-color: #ef97bc;
 }
 .main [type="create"]:hover {
-  background-color: skyblue;
+  background-color: lightskyblue;
 }
 
 .main [type="create"].loadingButton {
-  background-color: skyblue
+  background-color: lightskyblue
 }
 .main footer {
   margin-top:5rem;
   text-align: center;
+}
+.main .load {
+  border: 24px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 24px solid lightskyblue;
+  width: 50px;
+  height: 50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  text-align: center;
+  margin-left:50px;
+}
+.main loading {
+  font-family:Lobster;
+  font-size:28px;
+  margin-top:50px;
+  padding-top: 50px;
+}
+.main .loading {
+  margin-top: 20px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

@@ -47,7 +47,7 @@ export default function Home() {
     
       <Head>
         <title>Storyteller</title>
-        <link rel="icon" href="/dog.png" />
+        <link rel="icon" type="image/x-icon" href="/images/icons96.png" />
       </Head>
       
       <main className={styles.main}>
@@ -108,8 +108,11 @@ export default function Home() {
 
 
         {loading && (
-          <div className={styles.load}>
+          <div className={styles.loading}>
             <loading>Creating a story...</loading>
+
+            <div className={styles.load}><link rel="icon" type="image/x-icon" 
+            href="/images/icons32.png" /></div>
           </div>
         )}
         
@@ -117,9 +120,11 @@ export default function Home() {
           className={styles.result}
           dangerouslySetInnerHTML={{ __html: result }}
         />
-        <footer>Made by Yuta Kato. Uses the OpenAI API. <br/>
-        <a href="https://github.com/quinzdom/storyteller">Github </a>
-         |  <a href="mailto: yutakato1@gmail.com">Email</a>
+        
+        <footer>Made by Yuta. Uses the OpenAI API. <br/>
+        <a href="https://github.com/quinzdom/storyteller">Github</a>
+        &nbsp;|&nbsp;
+        <a href="mailto: yutakato1@gmail.com">Email</a>
         </footer>
       
       </main>
