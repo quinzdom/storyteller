@@ -64,31 +64,25 @@
   margin-bottom: 24px;
   outline-color: #d90808;
 }
-.main input[type="button"] {
-  background-color: rgb(56, 112, 225); /* Green */
-  border: none;
-  color: white;
-  padding: 10px 32px;
-  text-align: center;
-  font-size: 14px;
-  margin: 4px 2px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 .main [type="button"] {
   color: #fff;
-  background-color: #ef97bc;
+  background-color: lightblue;
   border: none;
   border-radius: 8px;
   text-align: center;
   margin: 4px 2px;
   padding: 8px 30px;
-  width:100%
+  width:100%;
+  cursor: pointer;
 }
+.main [type="button"]:hover {
+  background-color: aqua;
+ }
 .main .paragraphs {
   display: flex;
   justify-content: space-between;
 }
+
 .main .active {
   background-color: rgb(122, 141, 238);
 }
@@ -149,29 +143,14 @@
 
 .main .fill {
   border-radius: 8px;
-  font-size: 20px;
+  font-size: 18px;
   letter-spacing: 1px;
   padding: 13px 50px 13px;
-  outline: 0;
-  border: 1px solid black;
+  border: 1.5px solid black;
   cursor: pointer;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0);
-}
-.main .fill::after {
-  border-radius: 4px;
-  content: "";
   background-color: #ef97bc;
-  width: 100%;
-  z-index: -1;
-  position: absolute;
-  height: 100%;
-  top: 5px;
-  left: 5px;
-  transition: .15s;
+  margin-top:20px;
 }
-
-.main .fill:hover::after {
-  top: 0px;
-  left: 0px;
+.main .fill:hover {
+  background-color: lightblue;
 }
