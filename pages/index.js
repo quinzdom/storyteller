@@ -5,6 +5,9 @@ import styles from './index.module.css';
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
+  function handleClick() {
+    setClicked(!clicked);
+  }
   const [genre, setGenre] = useState('Comedy');
   const [characters, setCharacters] = useState('');
   const [paragraphs, setParagraphs] = useState('0')
@@ -87,10 +90,14 @@ export default function Home() {
           </div>
           
           
-          <button type="create" onClick={() => setClicked(!clicked)} className={styles.clicked}>create story{clicked}</button> 
+          <button type="create" 
+          onClick={handleClick} 
+          className={`
+          ${clicked ? styles.clicked : ''} 
+          ${loading ? styles.loadingButton : ''}`}>
+          create story{clicked}</button> 
           
         </form>
-
 
         <div className={styles.summaryTitle}>on {genre}  
         {characters && ` and ${characters}`}</div>

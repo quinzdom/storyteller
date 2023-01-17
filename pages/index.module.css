@@ -94,7 +94,7 @@
 
 .main .result {
   font-weight: bold;
-  width: 40%;
+  width: 500px;
 }
 
 .main .summaryTitle {
@@ -129,18 +129,34 @@
 }
 
 .main [type="create"] {
-  border-radius: 8px;
-  font-size: 18px;
-  letter-spacing: 1px;
-  padding: 13px 50px 13px;
-  border: 1.5px solid black;
+  align-self: center;
+  background-color: #fff;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-style: solid;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  color: #41403e;
   cursor: pointer;
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 23px;
+  outline: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  width:100%;
+  margin-top:25px;
+  padding-top:.8rem;
+  padding-bottom:.8rem;
   background-color: #ef97bc;
-  margin-top:20px;
 }
 .main [type="create"]:hover {
-  background-color: lightskyblue;
+  background-color: skyblue;
 }
-.main [type="create"] .clicked {
-  background-color: lightskyblue;
+
+.main [type="create"].loadingButton {
+  background-color: skyblue
 }

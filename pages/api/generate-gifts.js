@@ -6,14 +6,16 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export default async function (req, res) {
-  const {genre, characters, paragraphs } = req.body;
+  if (true) {const {genre, characters, paragraphs } = req.body;
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: generatePrompt(genre, characters, paragraphs),
     temperature: 0.6,
     max_tokens: 2048,
   });
-  res.status(200).json({ result: completion.data.choices[0].text });
+  res.status(200).json({ result: completion.data.choices[0].text });}
+  
+  else {res.status(200).json({result:"TEST"})}
 }
 
 function generatePrompt(genre, characters, paragraphs) {
