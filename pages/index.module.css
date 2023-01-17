@@ -58,16 +58,29 @@
   width: 370px;
 }
 .main [type="button"] {
-  background-color: #ef97bc;
-  border: none;
-  border-radius: 8px;
-  text-align: center;
-  margin: 4px 2px;
-  padding: 8px 30px;
-  width:100%;
+  align-self: center;
+  background-color: #fff;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-style: solid;
+  box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+  color: #41403e;
   cursor: pointer;
-  font-size:14px;
-  font-weight:bold;
+  display: inline-block;
+  font-size: 1.3rem;
+  line-height: 23px;
+  outline: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  width:100%;
+  margin-top:5px;
+  padding-top:.2rem;
+  padding-bottom:.2rem;
+  background-color: #ef97bc;
 }
 .main [type="create"] {
   background-color: black;
@@ -95,6 +108,7 @@
 .main .result {
   font-weight: bold;
   width: 500px;
+  margin-top:3rem;
 }
 
 .main .summaryTitle {
