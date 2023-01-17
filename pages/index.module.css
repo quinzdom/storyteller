@@ -57,7 +57,7 @@
   flex-direction: column;
   width: 370px;
 }
-.main [type="button"] {
+.main [type="button"], .main [type="create"] {
   align-self: center;
   background-color: #fff;
   background-position: 0 90%;
@@ -81,9 +81,6 @@
   padding-top:.2rem;
   padding-bottom:.2rem;
   background-color: #ef97bc;
-}
-.main [type="create"] {
-  background-color: black;
 }
 .main [type="button"]:hover {
   background-color: lightskyblue;
@@ -173,4 +170,8 @@
 
 .main [type="create"].loadingButton {
   background-color: skyblue
+}
+.main footer {
+  margin-top:5rem;
+  text-align: center;
 }

@@ -118,7 +118,13 @@ export default function Home() {
           className={styles.result}
           dangerouslySetInnerHTML={{ __html: result }}
         />
+        <footer>Made by Yuta Kato. Uses the OpenAI API. <br/>
+        <a href="https://github.com/quinzdom/storyteller">Github </a>
+         |  <a href="mailto: yutakato1@gmail.com">Email</a>
+        </footer>
+      
       </main>
+      
     </div>
   );
 }
