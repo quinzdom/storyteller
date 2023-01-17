@@ -1,24 +1,41 @@
 @font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
-      format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-family: "Comic Neue";
+  src: url("../public/ComicNeue/ComicNeue-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Futura PT;
+  src: url("../public/Futura\ PT/FuturaPTMedium.otf") ;
+}
+@font-face {
+  font-family: Lobster;
+  src: url("../public/Lobster/Lobster-Regular.ttf") ;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../public/Montserrat/static/Montserrat-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
-    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-family: "Montserrat";
+  src: url("../public/Montserrat/static/Montserrat-Bold.ttf");
   font-weight: bold;
   font-style: normal;
 }
+@font-face {
+  font-family: "Montserrat";
+  src: url("../public/Montserrat/static/Montserrat-BoldItalic.ttf");
+  font-weight: bold;
+  font-style: italic;
+}
 .main,
 .main input {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
+  /* font-family: "Comic Sans MS", cursive, sans-serif; */
+  /* font-family: "Comic Neue", sans-serif; */
+  font-family: "Montserrat";
 }
 .main {
   display: flex;
@@ -30,11 +47,13 @@
   width: 34px;
 }
 .main h3 {
-  font-size: 32px;
+  font-size: 36px;
   line-height: 40px;
   font-weight: bold;
   color: #202123;
   margin: 16px 0 40px;
+  font-family: Lobster
+  /* font-family: "Comic Sans MS"; */
 }
 .main form {
   display: flex;
@@ -92,12 +111,18 @@
   width: 50%;
 }
 
-.main .summary {
-  font-size:large;
+.main .summaryTitle {
+  font-size:20px;
   font-weight: bold;
-  padding-top:50px;
+  padding-top:30px;
   width: 50%;
-  text-align:center
+  text-align:center;
+  font-style:italic;
+}
+.main .summaryBody {
+  font-size:16px;
+  font-weight: bold;
+  font-style:italic;
 }
 
 .main input[type="text"],

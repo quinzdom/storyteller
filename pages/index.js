@@ -11,6 +11,13 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
 
+  const spelledOutNumbers = {
+    1: 'one',
+    3: 'three',
+    6: 'six'
+  }
+  let spelledOutParagraphs = spelledOutNumbers[paragraphs]
+
   async function onSubmit(event) {
     event.preventDefault();
     if (loading) {
@@ -77,7 +84,11 @@ export default function Home() {
           
         </form>
 
-        <div className={styles.summary}>On {genre} and {characters}: a {paragraphs} paragraph story</div>
+        <div className={styles.summaryTitle}>On {genre} {characters && `and ${characters}`}</div>
+
+        <div className={styles.summaryBody}>
+          
+          a {spelledOutParagraphs} paragraph story</div>
 
 
         {loading && (
