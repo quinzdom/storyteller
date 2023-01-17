@@ -30,12 +30,12 @@
 }
 .main,
 .main input {
-  font-size: 14px;
+  font-size: 15px;
   line-height: 24px;
-  color: #353740;
-  /* font-family: "Comic Sans MS", cursive, sans-serif; */
-  /* font-family: "Comic Neue", sans-serif; */
   font-family: "Montserrat";
+}
+.main input:focus, .main select:focus {
+  outline-color:rgb(49, 118, 202);
 }
 .main {
   display: flex;
@@ -76,7 +76,7 @@
   border-bottom-right-radius: 225px 15px;
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
-  width:100%;
+  width:32.5%;
   margin-top:5px;
   padding-top:.2rem;
   padding-bottom:.2rem;
@@ -89,7 +89,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .main .active {
   background-color:lightskyblue;
 }
@@ -98,8 +97,9 @@
 }
 
 .main ::placeholder {
-  color: #8e8ea0;
+  color: #a08e8e;
   opacity: 1;
+  font-size:14px;
 }
 
 .main .result {
@@ -129,6 +129,9 @@
   border-radius: 4px;
   margin-bottom: 12px;
   margin-top: 4px;
+}
+.main select {
+  font-size: 14px;
 }
 
 .main loading {
