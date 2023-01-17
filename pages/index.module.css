@@ -55,18 +55,10 @@
 .main form {
   display: flex;
   flex-direction: column;
-  width: 320px;
-}
-.main input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #a31010;
-  border-radius: 4px;
-  margin-bottom: 24px;
-  outline-color: #d90808;
+  width: 370px;
 }
 .main [type="button"] {
-  color: #fff;
-  background-color: lightblue;
+  background-color: #ef97bc;
   border: none;
   border-radius: 8px;
   text-align: center;
@@ -74,9 +66,14 @@
   padding: 8px 30px;
   width:100%;
   cursor: pointer;
+  font-size:14px;
+  font-weight:bold;
+}
+.main [type="create"] {
+  background-color: black;
 }
 .main [type="button"]:hover {
-  background-color: aqua;
+  background-color: lightskyblue;
  }
 .main .paragraphs {
   display: flex;
@@ -84,18 +81,12 @@
 }
 
 .main .active {
-  background-color: rgb(122, 141, 238);
+  background-color:lightskyblue;
 }
-.main input[type="submit"] {
-  margin-top:15px;
-  padding: 12px 0;
-  color: #fff;
-  background-color: #e175a2;
-  border: none;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
+.main .clicked {
+  background-color:lightskyblue;
 }
+
 .main ::placeholder {
   color: #8e8ea0;
   opacity: 1;
@@ -103,13 +94,13 @@
 
 .main .result {
   font-weight: bold;
-  width: 50%;
+  width: 40%;
 }
 
 .main .summaryTitle {
   font-size:20px;
   font-weight: bold;
-  padding-top:25px;
+  padding-top:50px;
   width: 50%;
   text-align:center;
 }
@@ -129,10 +120,6 @@
   margin-top: 4px;
 }
 
-.main .selectorContainer {
-  flexDirection:"row",
-}
-
 .main loading {
   font-family:Lobster;
   font-size:28px
@@ -141,7 +128,7 @@
   margin-top:20px;
 }
 
-.main .fill {
+.main [type="create"] {
   border-radius: 8px;
   font-size: 18px;
   letter-spacing: 1px;
@@ -151,6 +138,9 @@
   background-color: #ef97bc;
   margin-top:20px;
 }
-.main .fill:hover {
-  background-color: lightblue;
+.main [type="create"]:hover {
+  background-color: lightskyblue;
+}
+.main [type="create"] .clicked {
+  background-color: lightskyblue;
 }

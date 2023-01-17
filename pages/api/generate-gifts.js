@@ -16,7 +16,6 @@ export default async function (req, res) {
   res.status(200).json({ result: completion.data.choices[0].text });
 }
 
-
 function generatePrompt(genre, characters, paragraphs) {
   return `In ${paragraphs} paragraphs tell a ${genre} story involving ${characters}. `;
 }

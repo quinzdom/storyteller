@@ -7,7 +7,7 @@ export default function Home() {
   const [clicked, setClicked] = useState(false);
   const [genre, setGenre] = useState('Comedy');
   const [characters, setCharacters] = useState('');
-  const [paragraphs, setParagraphs] = useState('')
+  const [paragraphs, setParagraphs] = useState('0')
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
@@ -87,7 +87,7 @@ export default function Home() {
           </div>
           
           
-          <button className={styles.fill}>create story</button> {/* type="submit" */}
+          <button type="create" onClick={() => setClicked(!clicked)} className={styles.clicked}>create story{clicked}</button> 
           
         </form>
 
