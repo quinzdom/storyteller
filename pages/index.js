@@ -43,7 +43,7 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className={styles.page}>
     
       <Head>
         <title>Storyteller</title>
@@ -89,7 +89,6 @@ export default function Home() {
              className={paragraphs === '6' ? styles.active : ''}
              >6</button>
           </div>
-          
           
           <button type="create" 
           onClick={handleClick} 
