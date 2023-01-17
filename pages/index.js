@@ -4,9 +4,10 @@ import { useState } from 'react';
 import styles from './index.module.css';
 
 export default function Home() {
-  const [genre, setGenre] = useState('comedy');
+  const [clicked, setClicked] = useState(false);
+  const [genre, setGenre] = useState('Comedy');
   const [characters, setCharacters] = useState('');
-  const [paragraphs, setParagraphs] = useState('1')
+  const [paragraphs, setParagraphs] = useState('')
 
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState('');
@@ -55,8 +56,8 @@ export default function Home() {
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
           >
-            <option value="comedy">Comedy</option>
-            <option value="tragedy">Tragedy</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Tragedy">Tragedy</option>
             <option value="Rags to Riches">Rags to Riches</option>
             <option value="A Great Quest">A Great Quest</option>
             <option value="Coming of Age">Coming of Age</option>
@@ -74,26 +75,34 @@ export default function Home() {
             
           <label>Paragraphs</label>
           <div className={styles.paragraphs}>
-            <button type="button" onClick={() => setParagraphs('1')}>1</button>
-            <button type="button"  onClick={() => setParagraphs('3')}>3</button>
-            <button type="button"  onClick={() => setParagraphs('6')}>6</button>
+            <button type="button" onClick={() => setParagraphs('1')}
+            className={paragraphs === '1' ? styles.active : ''}
+            >1</button>
+            <button type="button"  onClick={() => setParagraphs('3')}
+             className={paragraphs === '3' ? styles.active : ''}
+             >3</button>
+            <button type="button"  onClick={() => setParagraphs('6')}
+             className={paragraphs === '6' ? styles.active : ''}
+             >6</button>
           </div>
           
-
-          <input type="submit" value="create story" />
+          
+          <button className={styles.fill}>create story</button> {/* type="submit" */}
           
         </form>
 
-        <div className={styles.summaryTitle}>On {genre} {characters && `and ${characters}`}</div>
+
+        <div className={styles.summaryTitle}>on {genre}  
+        {characters && ` and ${characters}`}</div>
 
         <div className={styles.summaryBody}>
           
-          a {spelledOutParagraphs} paragraph story</div>
+          {spelledOutParagraphs && `a ${spelledOutParagraphs} paragraph story`}</div>
 
 
         {loading && (
-          <div>
-            <h3>Creating a story...</h3>
+          <div className={styles.load}>
+            <loading>Creating a story...</loading>
           </div>
         )}
         

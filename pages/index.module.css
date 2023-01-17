@@ -43,9 +43,6 @@
   align-items: center;
   padding-top: 60px;
 }
-.main .icon {
-  width: 34px;
-}
 .main h3 {
   font-size: 36px;
   line-height: 40px;
@@ -92,7 +89,11 @@
   display: flex;
   justify-content: space-between;
 }
+.main .active {
+  background-color: rgb(122, 141, 238);
+}
 .main input[type="submit"] {
+  margin-top:15px;
   padding: 12px 0;
   color: #fff;
   background-color: #e175a2;
@@ -114,15 +115,14 @@
 .main .summaryTitle {
   font-size:20px;
   font-weight: bold;
-  padding-top:30px;
+  padding-top:25px;
   width: 50%;
   text-align:center;
-  font-style:italic;
 }
 .main .summaryBody {
   font-size:16px;
   font-weight: bold;
-  font-style:italic;
+  padding-top:5px;
 }
 
 .main input[type="text"],
@@ -139,3 +139,39 @@
   flexDirection:"row",
 }
 
+.main loading {
+  font-family:Lobster;
+  font-size:28px
+}
+.main .load {
+  margin-top:20px;
+}
+
+.main .fill {
+  border-radius: 8px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+.main .fill::after {
+  border-radius: 4px;
+  content: "";
+  background-color: #ef97bc;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 5px;
+  left: 5px;
+  transition: .15s;
+}
+
+.main .fill:hover::after {
+  top: 0px;
+  left: 0px;
+}
