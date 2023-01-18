@@ -29,6 +29,12 @@
   font-style: italic;
 }
 
+@font-face {
+  font-family: "Source Serif";
+  src: url("../public/fonts/SourceSerif/SourceSerif4-Regular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
 .main,
 .main input {
   font-size: 15px;
@@ -36,7 +42,7 @@
   font-family: "Montserrat";
 }
 .main input:focus, .main select:focus {
-  outline-color:rgb(49, 118, 202);
+  outline-color:rgba(38, 92, 228, 0.663);
 }
 .main {
   display: flex;
@@ -49,9 +55,8 @@
   line-height: 40px;
   font-weight: bold;
   color: #202123;
-  margin: 16px 0 40px;
+  margin: 16px 0 20px;
   font-family: Lobster
-  /* font-family: "Comic Sans MS"; */
 }
 .main form {
   display: flex;
@@ -104,24 +109,9 @@
 }
 
 .main .result {
-  font-weight: bold;
   width: 500px;
-  margin-top:3rem;
+  margin-top:1.3rem;
 }
-
-.main .summaryTitle {
-  font-size:20px;
-  font-weight: bold;
-  padding-top:35px;
-  width: 50%;
-  text-align:center;
-}
-.main .summaryBody {
-  font-size:16px;
-  font-weight: bold;
-  padding-top:5px;
-}
-
 .main input[type="text"],
 .main input[type="number"],
 .main select {
@@ -134,12 +124,6 @@
 .main select {
   font-size: 14px;
 }
-
-
-.main .load {
-  margin-top:20px;
-}
-
 .main [type="create"] {
   align-self: center;
   background-color: #fff;
@@ -172,31 +156,45 @@
 .main [type="create"].loadingButton {
   background-color: lightskyblue
 }
-.main footer {
-  margin-top:5rem;
-  text-align: center;
+.main .summaryTitle {
+  font-size:26px;
+  font-weight: bold;
+  padding-top:3rem;
+  width: 50%;
+  text-align:center;
+  font-family: 'Palatino';
 }
-.main .load {
+.main .summaryBody {
+  font-family: 'Garamond';
+  font-size:18px;
+  padding-top:5px;
+}
+.main .load { /* circle */
   border: 24px solid #f3f3f3;
-  border-radius: 50%;
+  border-radius: 100%;
   border-top: 24px solid lightskyblue;
-  width: 50px;
-  height: 50px;
+  width: 10px;
+  height: 10px;
   -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   text-align: center;
-  margin-left:50px;
+  margin-left:20px;
+  margin-top:25px;
 }
 .main loading {
   font-family:Lobster;
   font-size:28px;
-  margin-top:50px;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 .main .loading {
-  margin-top: 20px;
+  display:flex;
 }
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+.main footer {
+  margin-top:7rem;
+  text-align: center;
+  font-size:12px;
 }

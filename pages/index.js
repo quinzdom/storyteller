@@ -3,7 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './index.module.css';
 
-
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   function handleClick() {
@@ -51,7 +50,7 @@ export default function Home() {
       </Head>
       
       <main className={styles.main}>
-        <h3>Storyteller</h3>
+        <h3>Storyteller &nbsp;</h3>
         <form onSubmit={onSubmit}>
 
           <label>Select the genre</label>
@@ -98,18 +97,19 @@ export default function Home() {
           create story{clicked}</button> 
           
         </form>
-
+        
         <div className={styles.summaryTitle}>on {genre}  
         {characters && ` and ${characters}`}</div>
-
+        
         <div className={styles.summaryBody}>
           
           {spelledOutParagraphs && `a ${spelledOutParagraphs} paragraph story`}</div>
 
 
         {loading && (
+
           <div className={styles.loading}>
-            <loading>Creating a story...</loading>
+            <loading>Creating a Story...</loading>
 
             <div className={styles.load}><link rel="icon" type="image/x-icon" 
             href="/images/icons32.png" /></div>
@@ -121,7 +121,7 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: result }}
         />
         
-        <footer>Made by Yuta. Uses the OpenAI API. <br/>
+        <footer>Made by Yuta<br/>
         <a href="https://github.com/quinzdom/storyteller">Github</a>
         &nbsp;|&nbsp;
         <a href="mailto: yutakato1@gmail.com">Email</a>
