@@ -2,6 +2,8 @@ import Head from 'next/head';
 import React from 'react';
 import { useState } from 'react';
 import styles from './index.module.css';
+import { Analytics } from '@vercel/analytics/react';
+
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
@@ -126,7 +128,7 @@ export default function Home() {
         &nbsp;|&nbsp;
         <a href="mailto: yutakato1@gmail.com">Email</a>
         </footer>
-      
+        <Analytics />
       </main>
       
     </div>
