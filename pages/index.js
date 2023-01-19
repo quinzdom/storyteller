@@ -123,7 +123,7 @@ export default function Home() {
           className={styles.result}
           // dangerouslySetInnerHTML={{ __html: result }}
         >
-          <ReactMarkdown>{result}</ReactMarkdown>
+          {result}
         </div>
         
         <footer>Made by Yuta<br/>

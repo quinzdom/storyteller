@@ -113,6 +113,7 @@
 .main .result {
   width: 500px;
   margin-top:1.3rem;
+  white-space: pre-line;
 }
 
 .main input[type="text"],
