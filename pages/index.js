@@ -3,6 +3,7 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
+import ReactMarkdown from 'react-markdown'
 
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
       body: JSON.stringify({genre, characters, paragraphs }),
     });
     const data = await response.json();
-    setResult(data.result.replaceAll('\n', '<br />'));
+    setResult(data.result);
     setLoading(false);
   }
 
@@ -120,8 +121,10 @@ export default function Home() {
         
         <div
           className={styles.result}
-          dangerouslySetInnerHTML={{ __html: result }}
-        />
+          // dangerouslySetInnerHTML={{ __html: result }}
+        >
+          <ReactMarkdown>{result}</ReactMarkdown>
+        </div>
         
         <footer>Made by Yuta<br/>
         <a href="https://github.com/quinzdom/storyteller">Github</a>

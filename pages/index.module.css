@@ -114,6 +114,7 @@
   width: 500px;
   margin-top:1.3rem;
 }
+
 .main input[type="text"],
 .main input[type="number"],
 .main select {
@@ -195,6 +196,7 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 .main footer {
   margin-top:7rem;
   text-align: center;
