@@ -65,7 +65,7 @@
   flex-direction: column;
   width: 360px;
 }
-.main [type="button"], .main [type="create"] {
+.main [type="button"] {
   align-self: center;
   background-color: #fff;
   background-position: 0 90%;
@@ -112,7 +112,6 @@
 
 .main .result {
   width: 500px;
-  margin-top:1.3rem;
   white-space: pre-line;
 }
 @media only screen and (max-width: 600px) {
@@ -133,7 +132,7 @@
 .main select {
   font-size: 14px;
 }
-.main [type="create"] {
+.main [type="createStory"] {
   align-self: center;
   background-color: #fff;
   background-position: 0 90%;
@@ -158,13 +157,9 @@
   padding-bottom:.8rem;
   background-color: var(--color1);
 }
-.main [type="create"]:hover {
+.main [type="createStory"]:hover {
   background-color: var(--color2);
 }
-
-/* .main [type="create"].loadingButton {
-  background-color: lightskyblue
-} */
 .main .summaryTitle {
   font-size:26px;
   font-weight: bold;

@@ -4,6 +4,54 @@ import { useState } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
 
+const CharacterName = (props) => {
+  return (
+      <input
+          type="text"
+          name="characters"
+          placeholder="Name a character"
+          value={props.characters}
+          onChange={(e) => props.setCharacters(e.target.value)}
+      />)
+}
+const GenreSelect = (props) => {
+  return (
+    <select
+      name="genre"
+      value={props.genre}
+      onChange={(e) => props.setGenre(e.target.value)}
+    >
+      <option value="Comedy">Comedy</option>
+      <option value="Tragedy">Tragedy</option>
+      <option value="Rags to Riches">Rags to Riches</option>
+      <option value="A Great Quest">A Great Quest</option>
+      <option value="Coming of Age">Coming of Age</option>
+      <option value="Romantic Comedy">Romantic Comedy</option>
+    </select>
+  );
+}
+const NumberOfParagraphs = ({ options, onChange }) => {
+  const [selected, setSelected] = useState(options['']);
+
+  return (
+    <div className={styles.paragraphs}>
+      {options.map((option) => (
+        <button 
+          key={option} 
+          type="button" 
+          onClick={() => {
+            setSelected(option);
+            onChange(option);
+          }}
+          className={selected === option ? styles.active : ''}
+        >
+          {option}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   function handleClick() {
@@ -53,45 +101,21 @@ export default function Home() {
       <main className={styles.main}>
         <h3>Storyteller &nbsp;</h3>
         <form onSubmit={onSubmit}>
-
+         
           <label>Select the genre</label>
-          <select
-            name="genre"
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-          >
-            <option value="Comedy">Comedy</option>
-            <option value="Tragedy">Tragedy</option>
-            <option value="Rags to Riches">Rags to Riches</option>
-            <option value="A Great Quest">A Great Quest</option>
-            <option value="Coming of Age">Coming of Age</option>
-            <option value="Romantic Comedy">Romantic Comedy</option>
-          </select>
+          <GenreSelect genre={genre} setGenre={setGenre}/>
 
+          
           <label>Name a character</label>
-          <input
-            type="text"
-            name="characters"
-            placeholder="Name a character"
-            value={characters}
-            onChange={(e) => setCharacters(e.target.value)}
-            />
+          <CharacterName characters = {characters} setCharacters={setCharacters}/>
             
           <label>Paragraphs</label>
-          <div className={styles.paragraphs}>
-            <button type="button" onClick={() => setParagraphs('1')}
-            className={paragraphs === '1' ? styles.active : ''}
-            >1</button>
-            <button type="button"  onClick={() => setParagraphs('3')}
-             className={paragraphs === '3' ? styles.active : ''}
-             >3</button>
-            <button type="button"  onClick={() => setParagraphs('6')}
-             className={paragraphs === '6' ? styles.active : ''}
-             >6</button>
-          </div>
+          <NumberOfParagraphs
+            options={['1', '3', '6',]}
+            onChange={(selectedOption) => setParagraphs(selectedOption)}
+          />
           
-          <button type="create" 
-          onClick={handleClick} 
+          <button type="createStory" onClick={handleClick} 
           className={`
           ${clicked ? styles.clicked : ''} 
           ${loading ? styles.loadingButton : ''}`}>
@@ -119,7 +143,6 @@ export default function Home() {
         
         <div
           className={styles.result}
-          // dangerouslySetInnerHTML={{ __html: result }}
         >
           {result}
         </div>
