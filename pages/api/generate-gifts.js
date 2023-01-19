@@ -13,7 +13,7 @@ function sleep(ms) {
 }
 
 export default async function (req, res) {
-  if (true) {const {genre, characters, paragraphs } = req.body;
+  if (false) {const {genre, characters, paragraphs } = req.body;
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: generatePrompt(genre, characters, paragraphs),
@@ -22,13 +22,11 @@ export default async function (req, res) {
   });
   res.status(200).json({ result: completion.data.choices[0].text });}
   else {
-    await sleep(500)
+    await sleep(2000)
    
     res.status(200).json({result:dummy_text})
     
-    }
-
-}
+    }}
 
 function generatePrompt(genre, characters, paragraphs) {
   return `In ${paragraphs} paragraphs tell a ${genre} story involving ${characters}. `;

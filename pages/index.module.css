@@ -40,6 +40,8 @@
   font-size: 15px;
   line-height: 24px;
   font-family: "Montserrat";
+  --color1:#ef97bc;
+  --color2:lightskyblue;
 }
 .main input:focus, .main select:focus {
   outline-color:rgba(38, 92, 228, 0.663);
@@ -86,20 +88,20 @@
   margin-top:5px;
   padding-top:.2rem;
   padding-bottom:.2rem;
-  background-color: #ef97bc;
+  background-color: var(--color1);
 }
 .main [type="button"]:hover {
-  background-color: lightskyblue;
+  background-color:var(--color2);
  }
 .main .paragraphs {
   display: flex;
   justify-content: space-between;
 }
 .main .active {
-  background-color:lightskyblue;
+  background-color:var(--color2);
 }
 .main .clicked {
-  background-color:lightskyblue;
+  background-color:var(--color2);
 }
 
 .main ::placeholder {
@@ -147,15 +149,15 @@
   margin-top:25px;
   padding-top:.8rem;
   padding-bottom:.8rem;
-  background-color: #ef97bc;
+  background-color: var(--color1);
 }
 .main [type="create"]:hover {
-  background-color: lightskyblue;
+  background-color: var(--color2);
 }
 
-.main [type="create"].loadingButton {
+/* .main [type="create"].loadingButton {
   background-color: lightskyblue
-}
+} */
 .main .summaryTitle {
   font-size:26px;
   font-weight: bold;

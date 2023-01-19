@@ -73,7 +73,7 @@ export default function Home() {
           <input
             type="text"
             name="characters"
-            placeholder="Name another character"
+            placeholder="Name a character"
             value={characters}
             onChange={(e) => setCharacters(e.target.value)}
             />
