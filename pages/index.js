@@ -3,8 +3,6 @@ import React from 'react';
 import { useState } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
-import ReactMarkdown from 'react-markdown'
-
 
 export default function Home() {
   const [clicked, setClicked] = useState(false);
