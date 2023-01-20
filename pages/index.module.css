@@ -58,7 +58,8 @@
   font-weight: bold;
   color: #202123;
   margin: 16px 0 20px;
-  font-family: Lobster
+  font-family: Lobster;
+  pointer-events:none;
 }
 .main form {
   display: flex;
@@ -110,13 +111,13 @@
   font-size:14px;
 }
 
-.main .result {
+.main .theStory {
   width: 500px;
   white-space: pre-line;
+  margin-top:20px;
 }
 @media only screen and (max-width: 600px) {
-  .main .result {
-    background-color: lightblue;
+  .main .theStory {
     width:100%;
   }
 }

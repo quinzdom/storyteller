@@ -13,18 +13,18 @@ function sleep(ms) {
 }
 
 export default async function (req, res) {
-  if (true) {const {genre, characters, paragraphs } = req.body;
+  if (false) {const {genre, characters, paragraphs } = req.body;
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: generatePrompt(genre, characters, paragraphs),
     temperature: 0.6,
     max_tokens: 2048,
   });
-  res.status(200).json({ result: completion.data.choices[0].text });}
+  res.status(200).json({ story: completion.data.choices[0].text });}
   else {
     await sleep(1000)
     
-    res.status(200).json({result:dummy_text})
+    res.status(200).json({story:dummy_text})
     
     }
   }

@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import React from 'react';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
+import Typewriter from "typewriter-effect";
 
+//Return
 const CharacterName = (props) => {
   return (
       <input
@@ -32,7 +35,6 @@ const GenreSelect = (props) => {
 }
 const NumberOfParagraphs = ({ options, onChange }) => {
   const [selected, setSelected] = useState(options['']);
-
   return (
     <div className={styles.paragraphs}>
       {options.map((option) => (
@@ -52,6 +54,31 @@ const NumberOfParagraphs = ({ options, onChange }) => {
   )
 }
 
+/*
+function App(x) {
+  return (
+    <div>
+      <Typewriter
+        onInit={(typewriter) => {
+          typewriter
+            .typeString(x)
+            .start();
+        }}
+      />
+    </div>
+  );
+}
+*/
+
+/*
+function MyComponent(props) {
+
+  useEffect(() => {
+      <div>EIJEE</div>
+  },[props]) // <-- here put the parameter to listen
+}
+*/
+
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   function handleClick() {
@@ -62,7 +89,34 @@ export default function Home() {
   const [paragraphs, setParagraphs] = useState('0')
 
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState('');
+  const [story, setStory] = useState('');
+
+  // const typewriterNode = (
+  //   <Typewriter
+  //     onInit={(typewriter) => {
+  //       typewriter
+  //         .typeString(story)
+  //         .start();
+  //     }}
+  //   />
+  // )
+  const typewriter = new Typewriter({
+    onInit: (typewriter) => {
+      // TODO: need to do anything here?
+      // typewriter
+      //   .typeString(story)
+      //   .start();
+    }
+  })
+  console.log(typewriter)
+
+  function updateStory(story) {
+    // make the typewriter rewrite the story
+    setStory(story);
+    typewriter
+        .typeString(story)
+        .start();
+  }
 
   const spelledOutNumbers = {
     1: 'one',
@@ -77,7 +131,7 @@ export default function Home() {
       return;
     }
     setLoading(true);
-    setResult('');
+    setStory('');
     const response = await fetch('/api/generate-gifts', {
       method: 'POST',
       headers: {
@@ -86,13 +140,12 @@ export default function Home() {
       body: JSON.stringify({genre, characters, paragraphs }),
     });
     const data = await response.json();
-    setResult(data.result);
+    updateStory(data.story);
     setLoading(false);
   }
-
+//The Page
   return (
     <div className={styles.page}>
-    
       <Head>
         <title>Storyteller</title>
         <link rel="icon" type="image/x-icon" href="/images/icons96.png" />
@@ -100,8 +153,8 @@ export default function Home() {
       
       <main className={styles.main}>
         <h3>Storyteller &nbsp;</h3>
+       
         <form onSubmit={onSubmit}>
-         
           <label>Select the genre</label>
           <GenreSelect genre={genre} setGenre={setGenre}/>
 
@@ -127,9 +180,7 @@ export default function Home() {
         {characters && ` and ${characters}`}</div>
         
         <div className={styles.summaryBody}>
-          
           {spelledOutParagraphs && `a ${spelledOutParagraphs} paragraph story`}</div>
-
 
         {loading && (
 
@@ -142,9 +193,16 @@ export default function Home() {
         )}
         
         <div
-          className={styles.result}
+          className={styles.theStory}
         >
-          {result}
+          
+          {/* <div>{App("ukfytyjf")}</div> */}
+          {/* {story} */}
+          {/* <div>{App(story)}</div> */}
+          {/* <Typewriter></Typewriter> */}
+          {/* {typewriter} */}
+          
+           
         </div>
         
         <footer>Made by Yuta<br/>
