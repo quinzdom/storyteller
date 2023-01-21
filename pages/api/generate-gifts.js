@@ -33,7 +33,7 @@ function generatePrompt(genre, place, characters, paragraphs) {
   if (genre === 'Comedy') {
     genre = 'funny'
   }
-  return `Tell a ${genre} story that is set in ${place} and involves ${characters}. Use only 3 paragraphs.`;
+  return `Tell a ${genre} story that is set in ${place} and involves ${characters}. Use only ${paragraphs} paragraphs.`;
 }
 
 
