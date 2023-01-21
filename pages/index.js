@@ -70,7 +70,7 @@ export default function Home() {
   const [genre, setGenre] = useState('Comedy');
   const [place, setPlace] = useState('');
   const [characters, setCharacters] = useState('');
-  const [paragraphs, setParagraphs] = useState('1')
+  const [paragraphs, setParagraphs] = useState('')
   
   const [loading, setLoading] = useState(false);
   const [story, setStory] = useState('');
@@ -120,7 +120,7 @@ export default function Home() {
           
           <label>Name a character</label>
           <CharacterName characters = {characters} setCharacters={setCharacters}/>
-          
+
           <label>Paragraphs</label>
           <NumberOfParagraphs
             options={['1', '3', '6',]}
