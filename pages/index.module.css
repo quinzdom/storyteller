@@ -186,12 +186,10 @@
   margin-left:20px;
   margin-top:25px;
 }
-.main loading {
+.main .loading {
   font-family:Lobster;
   font-size:28px;
   padding-top: 40px;
-}
-.main .loading {
   display:flex;
 }
 @keyframes spin {

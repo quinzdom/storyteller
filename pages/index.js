@@ -4,17 +4,26 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
-import Typewriter from "typewriter-effect";
 
-//Return
+const PlaceName = (props) => {
+  return (
+      <input
+        type="text"
+        name="place"
+        placeholder="Name a place"
+        value={props.place}
+        onChange={(event) => props.setPlace(event.target.value)}
+        />
+  )
+}
 const CharacterName = (props) => {
   return (
       <input
           type="text"
-          name="characters"
+          // name="characters"
           placeholder="Name a character"
           value={props.characters}
-          onChange={(e) => props.setCharacters(e.target.value)}
+          onChange={(event) => props.setCharacters(event.target.value)}
       />)
 }
 const GenreSelect = (props) => {
@@ -53,70 +62,18 @@ const NumberOfParagraphs = ({ options, onChange }) => {
     </div>
   )
 }
-
-/*
-function App(x) {
-  return (
-    <div>
-      <Typewriter
-        onInit={(typewriter) => {
-          typewriter
-            .typeString(x)
-            .start();
-        }}
-      />
-    </div>
-  );
-}
-*/
-
-/*
-function MyComponent(props) {
-
-  useEffect(() => {
-      <div>EIJEE</div>
-  },[props]) // <-- here put the parameter to listen
-}
-*/
-
 export default function Home() {
   const [clicked, setClicked] = useState(false);
   function handleClick() {
     setClicked(!clicked);
   }
   const [genre, setGenre] = useState('Comedy');
+  const [place, setPlace] = useState('');
   const [characters, setCharacters] = useState('');
-  const [paragraphs, setParagraphs] = useState('0')
-
+  const [paragraphs, setParagraphs] = useState('1')
+  
   const [loading, setLoading] = useState(false);
   const [story, setStory] = useState('');
-
-  // const typewriterNode = (
-  //   <Typewriter
-  //     onInit={(typewriter) => {
-  //       typewriter
-  //         .typeString(story)
-  //         .start();
-  //     }}
-  //   />
-  // )
-  const typewriter = new Typewriter({
-    onInit: (typewriter) => {
-      // TODO: need to do anything here?
-      // typewriter
-      //   .typeString(story)
-      //   .start();
-    }
-  })
-  console.log(typewriter)
-
-  function updateStory(story) {
-    // make the typewriter rewrite the story
-    setStory(story);
-    typewriter
-        .typeString(story)
-        .start();
-  }
 
   const spelledOutNumbers = {
     1: 'one',
@@ -137,10 +94,10 @@ export default function Home() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({genre, characters, paragraphs }),
+      body: JSON.stringify({genre, place, characters, paragraphs }),
     });
     const data = await response.json();
-    updateStory(data.story);
+   setStory(data.story);
     setLoading(false);
   }
 //The Page
@@ -158,10 +115,12 @@ export default function Home() {
           <label>Select the genre</label>
           <GenreSelect genre={genre} setGenre={setGenre}/>
 
+          <label>Name a place</label>
+          <PlaceName place = {place} setPlace={setPlace}/>
           
           <label>Name a character</label>
           <CharacterName characters = {characters} setCharacters={setCharacters}/>
-            
+          
           <label>Paragraphs</label>
           <NumberOfParagraphs
             options={['1', '3', '6',]}
@@ -185,7 +144,7 @@ export default function Home() {
         {loading && (
 
           <div className={styles.loading}>
-            <loading>Creating a Story...</loading>
+            <div className="loading">Creating a Story...</div>
 
             <div className={styles.load}><link rel="icon" type="image/x-icon" 
             href="/images/icons32.png" /></div>
@@ -195,14 +154,7 @@ export default function Home() {
         <div
           className={styles.theStory}
         >
-          
-          {/* <div>{App("ukfytyjf")}</div> */}
-          {/* {story} */}
-          {/* <div>{App(story)}</div> */}
-          {/* <Typewriter></Typewriter> */}
-          {/* {typewriter} */}
-          
-           
+           <div>{story}</div>
         </div>
         
         <footer>Made by Yuta<br/>
