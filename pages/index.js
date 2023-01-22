@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
+import Generate from './image'
 
 const PlaceName = (props) => {
   return (
@@ -89,6 +90,7 @@ export default function Home() {
     }
     setLoading(true);
     setStory('');
+    console.log(JSON.stringify({genre, place, characters, paragraphs }));
     const response = await fetch('/api/generate-gifts', {
       method: 'POST',
       headers: {
@@ -98,7 +100,7 @@ export default function Home() {
     });
     const data = await response.json();
    setStory(data.story);
-    setLoading(false);
+   setLoading(false);
   }
 //The Page
   return (
@@ -138,6 +140,8 @@ export default function Home() {
         <div className={styles.summaryTitle}>on {genre}  
         {characters && ` and ${characters}`}</div>
         
+        <Generate/>
+
         <div className={styles.summaryBody}>
           {spelledOutParagraphs && `a ${spelledOutParagraphs} paragraph story`}</div>
 
@@ -154,7 +158,9 @@ export default function Home() {
         <div
           className={styles.theStory}
         >
-           <div>{story}</div>
+          
+           <div className="theStory2">{story}</div>
+           {/* <div className="theStory1">Image</div> */}
         </div>
         
         <footer>Made by Yuta<br/>

@@ -13,26 +13,25 @@ function sleep(ms) {
 }
 
 export default async function (req, res) {
-  if (true) {const {genre, place, characters, paragraphs } = req.body;
-  const completion = await openai.createCompletion({
-    model: 'text-davinci-003',
-    prompt: generatePrompt(genre, place, characters, paragraphs),
-    temperature: 0.6,
-    max_tokens: 2048,
+  if (false) {
+    const { genre, place, characters, paragraphs } = req.body;
+    const completion = await openai.createCompletion({
+      model: 'text-davinci-003',
+      prompt: generatePrompt(genre, place, characters, paragraphs),
+      temperature: 0.6,
+      max_tokens: 2048,
   });
-  res.status(200).json({ story: completion.data.choices[0].text });}
+  res.status(200).json({ story: completion.data.choices[0].text });
+}
   else {
     await sleep(1000)
-    
     res.status(200).json({story:dummy_text})
-
     }
   }
 
 function generatePrompt(genre, place, characters, paragraphs) {
   if (genre === 'Comedy') {
-    
-    genre = 'funny'
+    genre = 'very funny'
   }
   return `Tell a ${genre} story that is set in ${place} and involves ${characters}. Use only ${paragraphs} paragraphs.`;
 }
