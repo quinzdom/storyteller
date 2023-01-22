@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import styles from './index.module.css';
 import { Analytics } from '@vercel/analytics/react';
 import Generate from './image'
+import Image from "next/image";
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 const PlaceName = (props) => {
   return (
@@ -76,6 +79,9 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [story, setStory] = useState('');
 
+  const [prediction, setPrediction] = useState(null);
+  const [error, setError] = useState(null);
+  
   const spelledOutNumbers = {
     1: 'one',
     3: 'three',
@@ -102,6 +108,39 @@ export default function Home() {
    setStory(data.story);
    setLoading(false);
   }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("/api/predictions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        prompt: e.target.prompt.value,
+      }),
+    });
+    let prediction = await response.json();
+    if (response.status !== 201) {
+      setError(prediction.detail);
+      return;
+    }
+    setPrediction(prediction);
+
+    while (
+      prediction.status !== "succeeded" &&
+      prediction.status !== "failed"
+    ) {
+      await sleep(1000);
+      const response = await fetch("/api/predictions/" + prediction.id);
+      prediction = await response.json();
+      if (response.status !== 200) {
+        setError(prediction.detail);
+        return;
+      }
+      console.log({prediction})
+      setPrediction(prediction);
+    }
+  };
 //The Page
   return (
     <div className={styles.page}>
@@ -112,7 +151,12 @@ export default function Home() {
       
       <main className={styles.main}>
         <h3>Storyteller &nbsp;</h3>
-       
+
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <input type="text" name="prompt" placeholder="Enter a prompt" />
+          <button type="submit">Go!</button>
+        </form>
+
         <form onSubmit={onSubmit}>
           <label>Select the genre</label>
           <GenreSelect genre={genre} setGenre={setGenre}/>
@@ -140,11 +184,24 @@ export default function Home() {
         <div className={styles.summaryTitle}>on {genre}  
         {characters && ` and ${characters}`}</div>
         
-        <Generate/>
-
         <div className={styles.summaryBody}>
           {spelledOutParagraphs && `a ${spelledOutParagraphs} paragraph story`}</div>
-
+         
+        {prediction && (
+          <div>
+            {prediction.output && (
+              <div className={styles.imageWrapper}>
+                <Image
+                  fill
+                  src={prediction.output[prediction.output.length - 1]}
+                  alt="output"
+                  sizes='100vw'
+                />
+              </div>
+            )}
+            <p>status: {prediction.status}</p>
+          </div>
+        )}
         {loading && (
 
           <div className={styles.loading}>
