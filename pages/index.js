@@ -112,6 +112,7 @@ export default function Home() {
 //image submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(prompt)
     const response = await fetch("/api/predictions", {
       method: "POST",
       headers: {
@@ -183,9 +184,11 @@ export default function Home() {
           ${clicked ? styles.clicked : ''} 
           ${loading ? styles.loadingButton : ''}`}>
             create story{clicked}</button> 
-          
+
+           
         </form>
-        
+       
+
         <div className={styles.summaryTitle}>on {genre}  
         {characters && ` and ${characters}`}</div>
         
