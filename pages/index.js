@@ -88,12 +88,13 @@ export default function Home() {
     6: 'six'
   }
   let spelledOutParagraphs = spelledOutNumbers[paragraphs]
-
+//story submit
   async function onSubmit(event) {
     event.preventDefault();
     if (loading) {
       return;
     }
+    handleSubmit(event);
     setLoading(true);
     setStory('');
     console.log(JSON.stringify({genre, place, characters, paragraphs }));
@@ -108,6 +109,7 @@ export default function Home() {
    setStory(data.story);
    setLoading(false);
   }
+//image submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("/api/predictions", {
@@ -116,7 +118,7 @@ export default function Home() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: e.target.prompt.value,
+        prompt: characters + place + "Retro comic style artwork, highly detailed James Bond, comic book cover, symmetrical, vibrant"
       }),
     });
     let prediction = await response.json();
@@ -152,12 +154,12 @@ export default function Home() {
       <main className={styles.main}>
         <h3>Storyteller &nbsp;</h3>
 
-        <form className={styles.main} onSubmit={handleSubmit}>
+        {/* <form className={styles.main} onSubmit={handleSubmit}>
           <input type="text" 
           name="prompt" 
           placeholder="Enter a prompt" />
           <button type="submit">generate image</button>
-        </form>
+        </form> */}
 
         <form onSubmit={onSubmit}>
           <label>Select the genre</label>
@@ -175,11 +177,12 @@ export default function Home() {
             onChange={(selectedOption) => setParagraphs(selectedOption)}
           />
           
-          <button type="createStory" onClick={handleClick} 
-          className={`
+          <button type="createStory"
+            onClick={handleClick}
+            className={`
           ${clicked ? styles.clicked : ''} 
           ${loading ? styles.loadingButton : ''}`}>
-          create story{clicked}</button> 
+            create story{clicked}</button> 
           
         </form>
         

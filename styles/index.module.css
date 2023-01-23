@@ -175,9 +175,14 @@
   padding-top:5px;
 }
 .main .imageWrapper {
-  width: 100%;
+  width: 550px;
   aspect-ratio: 1 / 1;
   position: relative
+}
+@media only screen and (max-width: 600px) {
+  .main .imageWrapper {
+    width:100%;
+  }
 }
 .main .load { /* circle */
   border: 24px solid #f3f3f3;
