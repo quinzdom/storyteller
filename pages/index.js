@@ -119,7 +119,7 @@ export default function Home() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: characters + place + "Retro comic style artwork, highly detailed, comic book cover, symmetrical, vibrant"
+        prompt: characters + ", " + place + ", "+ "Retro comic style artwork, highly detailed, comic book cover, symmetrical, vibrant"
       }),
     });
     let prediction = await response.json();
