@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import styles from './index.module.css';
+import styles from '../styles/index.module.css';
 import { Analytics } from '@vercel/analytics/react';
 import Generate from './image'
 import Image from "next/image";
@@ -152,9 +152,11 @@ export default function Home() {
       <main className={styles.main}>
         <h3>Storyteller &nbsp;</h3>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <input type="text" name="prompt" placeholder="Enter a prompt" />
-          <button type="submit">Go!</button>
+        <form className={styles.main} onSubmit={handleSubmit}>
+          <input type="text" 
+          name="prompt" 
+          placeholder="Enter a prompt" />
+          <button type="submit">generate image</button>
         </form>
 
         <form onSubmit={onSubmit}>
