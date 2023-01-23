@@ -13,7 +13,7 @@ function sleep(ms) {
 }
 
 export default async function (req, res) {
-  if (false) {
+  if (true) {
     const { genre, place, characters, paragraphs } = req.body;
     const completion = await openai.createCompletion({
       model: 'text-davinci-003',
