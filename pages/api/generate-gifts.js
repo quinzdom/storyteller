@@ -28,13 +28,10 @@ export default async function (req, res) {
     res.status(200).json({story:dummy_text})
     }
   }
-
+  
 function generatePrompt(genre, place, characters, paragraphs) {
   if (genre === 'Comedy') {
     genre = 'very funny'
   }
-  return `Tell a ${genre} story that is set in ${place} and involves ${characters}. Use only ${paragraphs} paragraphs.`;
+  return `Tell a detailed and interested flash fiction ${genre} story that is set in ${place} and involves ${characters}. Use only ${paragraphs} paragraphs.`;
 }
-
-
-
