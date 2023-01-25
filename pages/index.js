@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import styles from '../styles/index.module.css';
 import { Analytics } from '@vercel/analytics/react';
-import Generate from './image'
 import Image from "next/image";
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
