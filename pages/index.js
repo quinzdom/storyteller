@@ -93,7 +93,8 @@ export default function Home() {
     if (loading) {
       return;
     }
-    handleSubmit(event);
+    //comment this to disable images
+    // handleSubmit(event);
     setLoading(true);
     setStory('');
     console.log(JSON.stringify({genre, place, characters, paragraphs }));
