@@ -84,7 +84,7 @@ export default function Home() {
   const spelledOutNumbers = {
     1: 'one',
     3: 'three',
-    6: 'six'
+    6: 'six',
   }
   let spelledOutParagraphs = spelledOutNumbers[paragraphs]
 //story submit
